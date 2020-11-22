@@ -37,16 +37,24 @@ const App = ({ slides }) => {
     <>
       <h1 data-testid="title">{slides[index].title} </h1>
       <p data-testid="text">{slides[index].text} </p>
-      <button onClick={handlePrev} disabled={disPrev} data-testid="button-prev">
+      <button
+        onClick={handlePrev}
+        disabled={index === 0 ? true : disPrev}
+        data-testid="button-prev"
+      >
         Prev{" "}
       </button>
-      <button onClick={handleNext} disabled={disNext} data-testid="button-next">
+      <button
+        onClick={handleNext}
+        disabled={index === slides.length - 1 ? true : disNext}
+        data-testid="button-next"
+      >
         {" "}
         Next
       </button>
       <button
         onClick={handleRestart}
-        disabled={disRestart}
+        disabled={index === 0 ? true : disRestart}
         data-testid="button-restart"
       >
         {" "}
